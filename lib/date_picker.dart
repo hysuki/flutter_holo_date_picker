@@ -101,21 +101,23 @@ class DatePicker {
     TextStyle? itemTextStyle,
     String? titleText,
     String? confirmText,
+    ButtonStyle? confirmStyle,
     String? cancelText,
+    ButtonStyle? cancelStyle,
     bool looping: false,
     bool reverse: false,
   }) {
     DateTime? _selectedDate = initialDate;
     final List<Widget> listButtonActions = [
       TextButton(
-        style: TextButton.styleFrom(primary: textColor),
+        style: confirmStyle ?? TextButton.styleFrom(primary: textColor),
         child: Text(confirmText ?? "OK"),
         onPressed: () {
           Navigator.pop(context, _selectedDate);
         },
       ),
       TextButton(
-        style: TextButton.styleFrom(primary: textColor),
+        style: cancelStyle ?? TextButton.styleFrom(primary: textColor),
         child: Text(cancelText ?? "Cancel"),
         onPressed: () {
           Navigator.pop(context);
