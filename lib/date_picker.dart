@@ -104,6 +104,7 @@ class DatePicker {
     ButtonStyle? confirmStyle,
     String? cancelText,
     ButtonStyle? cancelStyle,
+    ShapeBorder? dialogShape,
     bool looping: false,
     bool reverse: false,
   }) {
@@ -147,6 +148,12 @@ class DatePicker {
       textColor = DateTimePickerTheme.Default.itemTextStyle.color;
 
     var datePickerDialog = AlertDialog(
+      shape: dialogShape ??
+          RoundedRectangleBorder(
+            borderRadius: BorderRadius.all(
+              Radius.circular(10.0),
+            ),
+          ),
       title: Text(
         titleText ?? "Select Date",
         style: TextStyle(color: textColor),
